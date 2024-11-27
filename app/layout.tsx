@@ -4,16 +4,6 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "@/components/Header";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,11 +18,15 @@ export default function RootLayout({
   return (
     <ClerkProvider>
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body>
         <Header />
-        {children}
+        <div className="flex min-h-screen">
+
+        <div className="flex-1 p-4 bg-gray-100 overflow-y-auto">
+          {children}
+        </div>
+        </div>
+        
       </body>
     </html>
     </ClerkProvider>
